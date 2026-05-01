@@ -37,8 +37,10 @@ public class Login_frame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jLabel1.setFont(new java.awt.Font("Franklin Gothic Heavy", 0, 14)); // NOI18N
         jLabel1.setText("Digite su usuario");
 
+        jLabel2.setFont(new java.awt.Font("Franklin Gothic Heavy", 0, 14)); // NOI18N
         jLabel2.setText("Digite su contraseña");
 
         tfuser.addActionListener(new java.awt.event.ActionListener() {
@@ -47,13 +49,15 @@ public class Login_frame extends javax.swing.JFrame {
             }
         });
 
-        btn1.setText("Iniciar sesión");
+        btn1.setFont(new java.awt.Font("Franklin Gothic Book", 0, 14)); // NOI18N
+        btn1.setText("Ingresar");
         btn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn1ActionPerformed(evt);
             }
         });
 
+        jButton2.setFont(new java.awt.Font("Franklin Gothic Book", 0, 14)); // NOI18N
         jButton2.setText("Limpiar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,7 +81,7 @@ public class Login_frame extends javax.swing.JFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(tfpwd, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
                         .addComponent(tfuser, javax.swing.GroupLayout.Alignment.LEADING)))
-                .addContainerGap(211, Short.MAX_VALUE))
+                .addContainerGap(228, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -122,6 +126,10 @@ public class Login_frame extends javax.swing.JFrame {
 
        if(user.equals("daniel") && pwd.equals("0715")){
        JOptionPane.showMessageDialog(this, "Ha iniciado sesión correctamente");
+       
+       Catalogo_frame newframe = new Catalogo_frame();
+       newframe.setVisible(true);
+        this.dispose();
        } else {
        JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos");
        }
