@@ -5,6 +5,7 @@
 package empaquetado;
 
 import javax.swing.JOptionPane;
+import java.util.ArrayList;
 
 /**
  *
@@ -12,7 +13,7 @@ import javax.swing.JOptionPane;
  */
 public class Catalogo_frame extends javax.swing.JFrame {
     
-    String producto1="Camiseta", producto2="Zapatos";
+    ArrayList<String> carrito = new ArrayList<>();
             
 
     /**
@@ -20,6 +21,9 @@ public class Catalogo_frame extends javax.swing.JFrame {
      */
     public Catalogo_frame() {
         initComponents();
+        
+        carrito.add("Camiseta");
+        carrito.add("Zapatos");
     }
 
     /**
@@ -129,7 +133,12 @@ public class Catalogo_frame extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
-        JOptionPane.showMessageDialog(null,"Productos en carrito: \n" + producto1+"\n"+producto2);
+        String mensaje ="Productos en carrito:\n";
+        
+        for(String p : carrito){
+            mensaje += p + "\n";
+        }
+        JOptionPane.showMessageDialog(this, mensaje);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
