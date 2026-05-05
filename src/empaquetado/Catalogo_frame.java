@@ -22,8 +22,6 @@ public class Catalogo_frame extends javax.swing.JFrame {
     public Catalogo_frame() {
         initComponents();
         
-        carrito.add("Camiseta");
-        carrito.add("Zapatos");
     }
 
     /**
@@ -44,6 +42,13 @@ public class Catalogo_frame extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        btnac = new javax.swing.JButton();
+        btnaj = new javax.swing.JButton();
+        btnag = new javax.swing.JButton();
+        btnaz = new javax.swing.JButton();
+        btnacs = new javax.swing.JButton();
+        btnap = new javax.swing.JButton();
+        btnam = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -71,10 +76,67 @@ public class Catalogo_frame extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Franklin Gothic Book", 0, 14)); // NOI18N
         jLabel8.setText("Pantaloneta");
 
+        jButton1.setFont(new java.awt.Font("Franklin Gothic Book", 0, 14)); // NOI18N
         jButton1.setText("Ver carrito");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
+            }
+        });
+
+        btnac.setFont(new java.awt.Font("Franklin Gothic Book", 0, 14)); // NOI18N
+        btnac.setText("Agregar");
+        btnac.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnacActionPerformed(evt);
+            }
+        });
+
+        btnaj.setFont(new java.awt.Font("Franklin Gothic Book", 0, 14)); // NOI18N
+        btnaj.setText("Agregar");
+        btnaj.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnajActionPerformed(evt);
+            }
+        });
+
+        btnag.setFont(new java.awt.Font("Franklin Gothic Book", 0, 14)); // NOI18N
+        btnag.setText("Agregar");
+        btnag.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnagActionPerformed(evt);
+            }
+        });
+
+        btnaz.setFont(new java.awt.Font("Franklin Gothic Book", 0, 14)); // NOI18N
+        btnaz.setText("Agregar");
+        btnaz.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnazActionPerformed(evt);
+            }
+        });
+
+        btnacs.setFont(new java.awt.Font("Franklin Gothic Book", 0, 14)); // NOI18N
+        btnacs.setText("Agregar");
+        btnacs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnacsActionPerformed(evt);
+            }
+        });
+
+        btnap.setFont(new java.awt.Font("Franklin Gothic Book", 0, 14)); // NOI18N
+        btnap.setText("Agregar");
+        btnap.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnapActionPerformed(evt);
+            }
+        });
+
+        btnam.setFont(new java.awt.Font("Franklin Gothic Book", 0, 14)); // NOI18N
+        btnam.setText("Agregar");
+        btnam.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnamActionPerformed(evt);
             }
         });
 
@@ -88,21 +150,34 @@ public class Catalogo_frame extends javax.swing.JFrame {
                         .addGap(43, 43, 43)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
-                            .addComponent(jLabel5)
+                            .addComponent(jLabel6)
+                            .addComponent(btnam)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel2)
                                     .addComponent(jLabel3)
-                                    .addComponent(jLabel6))
-                                .addGap(117, 117, 117)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton1)
-                                    .addComponent(jLabel8)
-                                    .addComponent(jLabel7)))))
+                                    .addComponent(btnac)
+                                    .addComponent(btnaj)
+                                    .addComponent(btnag))
+                                .addGap(97, 97, 97)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(btnaz)
+                                        .addComponent(jButton1)
+                                        .addComponent(jLabel8)
+                                        .addComponent(jLabel7)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGap(6, 6, 6)
+                                            .addComponent(jLabel5)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(btnap)
+                                            .addComponent(btnacs))
+                                        .addGap(14, 14, 14))))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(215, 215, 215)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(142, Short.MAX_VALUE))
+                .addContainerGap(231, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -113,19 +188,36 @@ public class Catalogo_frame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel7))
-                .addGap(41, 41, 41)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnac)
+                    .addComponent(btnacs))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jLabel8))
-                .addGap(36, 36, 36)
-                .addComponent(jLabel4)
-                .addGap(52, 52, 52)
-                .addComponent(jLabel5)
-                .addGap(24, 24, 24)
+                .addGap(7, 7, 7)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jButton1))
-                .addContainerGap(71, Short.MAX_VALUE))
+                    .addComponent(btnaj)
+                    .addComponent(btnap, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnag)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnam))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnaz)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
+                .addContainerGap(150, Short.MAX_VALUE))
         );
 
         pack();
@@ -133,13 +225,60 @@ public class Catalogo_frame extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
-        String mensaje ="Productos en carrito:\n";
-        
+        String mensaje = "Productos en carrito:\n";
+
         for(String p : carrito){
             mensaje += p + "\n";
         }
+        
+        if(carrito.isEmpty()){
+            mensaje = "El carrito está vacío";
+        }
+
         JOptionPane.showMessageDialog(this, mensaje);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnapActionPerformed
+        
+        carrito.add("Pantaloneta");
+        JOptionPane.showMessageDialog(this, "Pantaloneta agregada");
+    }//GEN-LAST:event_btnapActionPerformed
+
+    private void btnamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnamActionPerformed
+        
+        carrito.add("Medias");
+        JOptionPane.showMessageDialog(this, "Medias agregadas");
+    }//GEN-LAST:event_btnamActionPerformed
+
+    private void btnazActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnazActionPerformed
+        
+        carrito.add("Zapatos");
+        JOptionPane.showMessageDialog(this, "Zapatos agregado");
+    }//GEN-LAST:event_btnazActionPerformed
+
+    private void btnacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnacActionPerformed
+       
+        carrito.add("Camiseta");
+        JOptionPane.showMessageDialog(this, "Camiseta agregada");
+    }//GEN-LAST:event_btnacActionPerformed
+
+    private void btnagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagActionPerformed
+        
+        carrito.add("gorra");
+        JOptionPane.showMessageDialog(this, "Gorra agregada");
+    }//GEN-LAST:event_btnagActionPerformed
+
+    private void btnacsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnacsActionPerformed
+        
+        carrito.add("Camisa");
+        JOptionPane.showMessageDialog(this, "Camisa agregada");
+    }//GEN-LAST:event_btnacsActionPerformed
+
+    private void btnajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnajActionPerformed
+        
+        carrito.add("Jeans");
+        JOptionPane.showMessageDialog(this, "Jeans agregados");
+    }//GEN-LAST:event_btnajActionPerformed
 
     /**
      * @param args the command line arguments
@@ -177,6 +316,13 @@ public class Catalogo_frame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnac;
+    private javax.swing.JButton btnacs;
+    private javax.swing.JButton btnag;
+    private javax.swing.JButton btnaj;
+    private javax.swing.JButton btnam;
+    private javax.swing.JButton btnap;
+    private javax.swing.JButton btnaz;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
