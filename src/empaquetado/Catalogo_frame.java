@@ -49,6 +49,7 @@ public class Catalogo_frame extends javax.swing.JFrame {
         btnacs = new javax.swing.JButton();
         btnap = new javax.swing.JButton();
         btnam = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -140,6 +141,13 @@ public class Catalogo_frame extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setText("Vaciar carrito");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -168,7 +176,8 @@ public class Catalogo_frame extends javax.swing.JFrame {
                                         .addComponent(jLabel7)
                                         .addGroup(layout.createSequentialGroup()
                                             .addGap(6, 6, 6)
-                                            .addComponent(jLabel5)))
+                                            .addComponent(jLabel5))
+                                        .addComponent(jButton2))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addComponent(btnap)
@@ -217,7 +226,9 @@ public class Catalogo_frame extends javax.swing.JFrame {
                         .addComponent(btnaz)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1)
-                .addContainerGap(150, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton2)
+                .addContainerGap(109, Short.MAX_VALUE))
         );
 
         pack();
@@ -225,16 +236,16 @@ public class Catalogo_frame extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
+        if(carrito.isEmpty()){
+            JOptionPane.showMessageDialog(this, "El carrito está vacío");
+            return;
+        }
+
         String mensaje = "Productos en carrito:\n";
 
         for(String p : carrito){
             mensaje += p + "\n";
         }
-        
-        if(carrito.isEmpty()){
-            mensaje = "El carrito está vacío";
-        }
-
         JOptionPane.showMessageDialog(this, mensaje);
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -280,6 +291,16 @@ public class Catalogo_frame extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Jeans agregados");
     }//GEN-LAST:event_btnajActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        
+        if(carrito.isEmpty()){
+            JOptionPane.showMessageDialog(this, "El carrito ya está vacío");
+        }else {
+         carrito.clear();
+         JOptionPane.showMessageDialog(this, "Carrito vaciado");
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -324,6 +345,7 @@ public class Catalogo_frame extends javax.swing.JFrame {
     private javax.swing.JButton btnap;
     private javax.swing.JButton btnaz;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
