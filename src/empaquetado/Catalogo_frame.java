@@ -241,7 +241,7 @@ public class Catalogo_frame extends javax.swing.JFrame {
             return;
         }
 
-        String mensaje = "Productos en carrito:\n";
+        String mensaje = "Productos agregados al carrito:\n";
 
         for(String p : carrito){
             mensaje += p + "\n";
