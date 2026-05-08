@@ -6,6 +6,8 @@ package empaquetado;
 
 import javax.swing.JOptionPane;
 import java.util.ArrayList;
+import java.io.FileWriter;
+import java.io.IOException;
 
 /**
  *
@@ -50,6 +52,7 @@ public class Catalogo_frame extends javax.swing.JFrame {
         btnap = new javax.swing.JButton();
         btnam = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        btngc = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -148,6 +151,13 @@ public class Catalogo_frame extends javax.swing.JFrame {
             }
         });
 
+        btngc.setText("Guardar carrito");
+        btngc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btngcActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -182,11 +192,13 @@ public class Catalogo_frame extends javax.swing.JFrame {
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addComponent(btnap)
                                             .addComponent(btnacs))
-                                        .addGap(14, 14, 14))))))
+                                        .addGap(14, 14, 14)))
+                                .addGap(25, 25, 25)
+                                .addComponent(btngc))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(215, 215, 215)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(231, Short.MAX_VALUE))
+                .addContainerGap(160, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -225,7 +237,9 @@ public class Catalogo_frame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnaz)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(btngc))
                 .addGap(18, 18, 18)
                 .addComponent(jButton2)
                 .addContainerGap(109, Short.MAX_VALUE))
@@ -301,6 +315,26 @@ public class Catalogo_frame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void btngcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btngcActionPerformed
+        
+        try{
+    
+            FileWriter archivo = new FileWriter("carrito.txt");
+    
+            for(String p : carrito){
+                archivo.write(p + "\n");
+            }
+    
+            archivo.close();
+    
+            JOptionPane.showMessageDialog(this, "Carrito guardado correctamente");
+            
+        }catch(IOException e){
+    
+            JOptionPane.showMessageDialog(this, "Error al guardar archivo");
+        }
+    }//GEN-LAST:event_btngcActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -344,6 +378,7 @@ public class Catalogo_frame extends javax.swing.JFrame {
     private javax.swing.JButton btnam;
     private javax.swing.JButton btnap;
     private javax.swing.JButton btnaz;
+    private javax.swing.JButton btngc;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
