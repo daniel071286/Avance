@@ -317,6 +317,11 @@ public class Catalogo_frame extends javax.swing.JFrame {
 
     private void btngcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btngcActionPerformed
         
+        if(carrito.isEmpty()){
+            JOptionPane.showMessageDialog(this, "No hay productos para guardar");
+            return;
+        }
+        
         try{
     
             FileWriter archivo = new FileWriter("carrito.txt");
