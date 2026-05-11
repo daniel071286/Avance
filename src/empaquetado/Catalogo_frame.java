@@ -53,6 +53,7 @@ public class Catalogo_frame extends javax.swing.JFrame {
         btnam = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         btngc = new javax.swing.JButton();
+        btnep = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -158,6 +159,13 @@ public class Catalogo_frame extends javax.swing.JFrame {
             }
         });
 
+        btnep.setText("Eliminar último producto");
+        btnep.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnepActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -194,11 +202,13 @@ public class Catalogo_frame extends javax.swing.JFrame {
                                             .addComponent(btnacs))
                                         .addGap(14, 14, 14)))
                                 .addGap(25, 25, 25)
-                                .addComponent(btngc))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btngc)
+                                    .addComponent(btnep)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(215, 215, 215)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(160, Short.MAX_VALUE))
+                .addContainerGap(106, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -241,7 +251,9 @@ public class Catalogo_frame extends javax.swing.JFrame {
                     .addComponent(jButton1)
                     .addComponent(btngc))
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2)
+                    .addComponent(btnep))
                 .addContainerGap(109, Short.MAX_VALUE))
         );
 
@@ -340,6 +352,18 @@ public class Catalogo_frame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btngcActionPerformed
 
+    private void btnepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnepActionPerformed
+        
+        if(carrito.isEmpty()){
+            JOptionPane.showMessageDialog(this,"El carrito está vacío");
+            
+        }else{
+            carrito.remove(carrito.size() - 1);
+            
+            JOptionPane.showMessageDialog(this, "Último producto eliminado");
+        }
+    }//GEN-LAST:event_btnepActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -383,6 +407,7 @@ public class Catalogo_frame extends javax.swing.JFrame {
     private javax.swing.JButton btnam;
     private javax.swing.JButton btnap;
     private javax.swing.JButton btnaz;
+    private javax.swing.JButton btnep;
     private javax.swing.JButton btngc;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
