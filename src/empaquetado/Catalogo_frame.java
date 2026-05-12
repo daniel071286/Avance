@@ -272,6 +272,9 @@ public class Catalogo_frame extends javax.swing.JFrame {
         for(String p : carrito){
             mensaje += p + "\n";
         }
+        
+        mensaje += "\nTotal de productos: " + carrito.size();
+        
         JOptionPane.showMessageDialog(this, mensaje);
     }//GEN-LAST:event_jButton1ActionPerformed
 
