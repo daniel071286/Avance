@@ -1,0 +1,5 @@
+c05;Medias;10000.0
+c05;Medias;10000.0
+c07;Pantaloneta;35000.0
+c06;Camisa;55000.0
+c04;Camiseta;130000.0

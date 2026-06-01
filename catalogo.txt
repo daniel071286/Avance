@@ -1,0 +1,7 @@
+c01;Camiseta;40000
+c02;Jeans;80000
+c03;Gorra;25000
+c04;Zapatos;130000
+c05;Medias;10000
+c06;Camisa;55000
+c07;Pantaloneta;35000

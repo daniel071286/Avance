@@ -17,6 +17,7 @@ public class Login_frame extends javax.swing.JFrame {
      */
     public Login_frame() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -28,87 +29,54 @@ public class Login_frame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        btn2 = new javax.swing.JButton();
+        btn1 = new javax.swing.JButton();
         tfuser = new javax.swing.JTextField();
         tfpwd = new javax.swing.JTextField();
-        btn1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Franklin Gothic Heavy", 0, 14)); // NOI18N
-        jLabel1.setText("Digite su usuario");
-
-        jLabel2.setFont(new java.awt.Font("Franklin Gothic Heavy", 0, 14)); // NOI18N
-        jLabel2.setText("Digite su contraseña");
-
-        tfuser.addActionListener(new java.awt.event.ActionListener() {
+        btn2.setBackground(new java.awt.Color(0, 0, 0));
+        btn2.setForeground(new java.awt.Color(255, 255, 255));
+        btn2.setText("Registrarse");
+        btn2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfuserActionPerformed(evt);
+                btn2ActionPerformed(evt);
             }
         });
+        getContentPane().add(btn2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 800, 150, 50));
 
+        btn1.setBackground(new java.awt.Color(153, 204, 255));
         btn1.setFont(new java.awt.Font("Franklin Gothic Book", 0, 14)); // NOI18N
+        btn1.setForeground(new java.awt.Color(0, 0, 0));
         btn1.setText("Ingresar");
         btn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn1ActionPerformed(evt);
             }
         });
+        getContentPane().add(btn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 700, 360, 70));
 
-        jButton2.setFont(new java.awt.Font("Franklin Gothic Book", 0, 14)); // NOI18N
-        jButton2.setText("Limpiar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        tfuser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                tfuserActionPerformed(evt);
             }
         });
+        getContentPane().add(tfuser, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 470, 360, 60));
+        getContentPane().add(tfpwd, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 610, 360, 50));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(217, 217, 217)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btn1)
-                        .addGap(67, 67, 67)
-                        .addComponent(jButton2))
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(tfpwd, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
-                        .addComponent(tfuser, javax.swing.GroupLayout.Alignment.LEADING)))
-                .addContainerGap(228, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(95, 95, 95)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(tfuser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(66, 66, 66)
-                .addComponent(jLabel2)
-                .addGap(27, 27, 27)
-                .addComponent(tfpwd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn1)
-                    .addComponent(jButton2))
-                .addContainerGap(148, Short.MAX_VALUE))
-        );
+        jLabel4.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/empaquetado/imagenes/login.png"))); // NOI18N
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 410, 880));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        
-        tfuser.setText("");
-        tfpwd.setText("");
-    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void tfuserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfuserActionPerformed
         // TODO add your handling code here:
@@ -117,23 +85,56 @@ public class Login_frame extends javax.swing.JFrame {
     private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
         
         String user = tfuser.getText().trim();
-        String pwd = new String(tfpwd.getText());
-
-        if(user.isEmpty() || pwd.isEmpty()){
+        String pwd = tfpwd.getText().trim();
+        
+        if (user.isEmpty() || pwd.isEmpty()) {
         JOptionPane.showMessageDialog(this, "Complete todos los campos");
         return;
-        } 
+        }
+        
+        boolean accesoOk = false;
+        
+        try (java.io.BufferedReader br = new java.io.BufferedReader(
+        new java.io.FileReader("usuario.txt"))) {
+        String linea;
+        while ((linea = br.readLine()) != null) {
+            linea = linea.trim();
+            if (!linea.isEmpty()) {
+                String[] datos = linea.split(";", -1);
+                if (datos.length == 2) {
+                    if (datos[0].trim().equals(user) && datos[1].trim().equals(pwd)) {
+                        accesoOk = true;
+                        break;
+                    }
+                }
+            }
+        }
+    } catch (java.io.IOException e) {
+        
+        if (user.equals("daniel") && pwd.equals("0715")) {
+            accesoOk = true;
+        } else {
+            JOptionPane.showMessageDialog(this, "No se encontró usuario.txt. Use: daniel / 0715");
+        }
+    }
 
-       if(user.equals("daniel") && pwd.equals("0715")){
-       JOptionPane.showMessageDialog(this, "Ha iniciado sesión correctamente");
-       
-       Catalogo_frame newframe = new Catalogo_frame();
-       newframe.setVisible(true);
+    if (accesoOk) {
+
+        SesionIniciada_frame newframe = new SesionIniciada_frame();
+        newframe.setVisible(true);
         this.dispose();
-       } else {
-       JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos");
-       }
+    } else {
+        JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos");
+    }
+
     }//GEN-LAST:event_btn1ActionPerformed
+
+    private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
+        
+        Registrarse_frame newframe = new Registrarse_frame();
+        newframe.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btn2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -172,9 +173,9 @@ public class Login_frame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton btn2;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField tfpwd;
     private javax.swing.JTextField tfuser;
     // End of variables declaration//GEN-END:variables

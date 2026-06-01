@@ -16,7 +16,10 @@ import java.io.IOException;
 public class Catalogo_frame extends javax.swing.JFrame {
     
     ArrayList<String> carrito = new ArrayList<>();
-            
+    
+    Lista listaCatalogo = new Lista();
+    Pila historialPila = new Pila();
+    Cola colaPedidos = new Cola();
 
     /**
      * Creates new form Catalogo_frame
@@ -24,6 +27,7 @@ public class Catalogo_frame extends javax.swing.JFrame {
     public Catalogo_frame() {
         initComponents();
         
+        listaCatalogo.setCargarCatalogo();
     }
 
     /**
@@ -54,6 +58,10 @@ public class Catalogo_frame extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         btngc = new javax.swing.JButton();
         btnep = new javax.swing.JButton();
+        btnh = new javax.swing.JButton();
+        btndh = new javax.swing.JButton();
+        btngp = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -166,6 +174,38 @@ public class Catalogo_frame extends javax.swing.JFrame {
             }
         });
 
+        btnh.setText("Historial");
+        btnh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnhActionPerformed(evt);
+            }
+        });
+
+        btndh.setText("Deshacer");
+        btndh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btndhActionPerformed(evt);
+            }
+        });
+
+        btngp.setText("Guardar pedido");
+        btngp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btngpActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -179,12 +219,19 @@ public class Catalogo_frame extends javax.swing.JFrame {
                             .addComponent(jLabel6)
                             .addComponent(btnam)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel3)
-                                    .addComponent(btnac)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(btnaj)
-                                    .addComponent(btnag))
+                                    .addComponent(btnag)
+                                    .addComponent(btnh)
+                                    .addComponent(btndh)
+                                    .addComponent(btngp)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel2)
+                                            .addComponent(jLabel3)
+                                            .addComponent(btnac))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(97, 97, 97)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -208,25 +255,28 @@ public class Catalogo_frame extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(215, 215, 215)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(106, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnac)
-                    .addComponent(btnacs))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel8))
+                .addGap(12, 12, 12)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel7))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnac)
+                            .addComponent(btnacs))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel8)))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(7, 7, 7)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnaj)
@@ -250,11 +300,20 @@ public class Catalogo_frame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(btngc))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(btnep))
-                .addContainerGap(109, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton2)
+                            .addComponent(btnep)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(btnh)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btndh)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btngp)
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
         pack();
@@ -281,53 +340,69 @@ public class Catalogo_frame extends javax.swing.JFrame {
     private void btnapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnapActionPerformed
         
         carrito.add("Pantaloneta");
+        historialPila.setPush("c07", "Pantaloneta", 35000);
+        colaPedidos.setEncolar("c07", "Pantaloneta", 35000);
         JOptionPane.showMessageDialog(this, "Pantaloneta agregada");
     }//GEN-LAST:event_btnapActionPerformed
 
     private void btnamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnamActionPerformed
         
         carrito.add("Medias");
+        historialPila.setPush("c05", "Medias", 10000);
+        colaPedidos.setEncolar("c05", "Medias", 10000);
         JOptionPane.showMessageDialog(this, "Medias agregadas");
     }//GEN-LAST:event_btnamActionPerformed
 
     private void btnazActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnazActionPerformed
         
         carrito.add("Zapatos");
-        JOptionPane.showMessageDialog(this, "Zapatos agregado");
+        historialPila.setPush("c04", "Zapatos", 130000);
+        colaPedidos.setEncolar("c04", "Zapatos", 130000);
+        JOptionPane.showMessageDialog(this, "Zapatos agregados");
     }//GEN-LAST:event_btnazActionPerformed
 
     private void btnacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnacActionPerformed
        
         carrito.add("Camiseta");
+        historialPila.setPush("c01", "Camiseta", 40000);
+        colaPedidos.setEncolar("c01", "Camiseta", 40000);
         JOptionPane.showMessageDialog(this, "Camiseta agregada");
     }//GEN-LAST:event_btnacActionPerformed
 
     private void btnagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagActionPerformed
         
         carrito.add("gorra");
+        historialPila.setPush("c03", "Gorra", 25000);
+        colaPedidos.setEncolar("c03", "Gorra", 25000);
         JOptionPane.showMessageDialog(this, "Gorra agregada");
     }//GEN-LAST:event_btnagActionPerformed
 
     private void btnacsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnacsActionPerformed
         
         carrito.add("Camisa");
+        historialPila.setPush("c06", "Camisa", 55000);
+        colaPedidos.setEncolar("c06", "Camisa", 55000);
         JOptionPane.showMessageDialog(this, "Camisa agregada");
     }//GEN-LAST:event_btnacsActionPerformed
 
     private void btnajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnajActionPerformed
         
         carrito.add("Jeans");
-        JOptionPane.showMessageDialog(this, "Jeans agregados");
+        historialPila.setPush("c02", "Jeans", 80000);
+        colaPedidos.setEncolar("c02", "Jeans", 80000);
+        JOptionPane.showMessageDialog(this,"Jeans agregado");
     }//GEN-LAST:event_btnajActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         
-        if(carrito.isEmpty()){
-            JOptionPane.showMessageDialog(this, "El carrito ya está vacío");
-        }else {
-         carrito.clear();
-         JOptionPane.showMessageDialog(this, "Carrito vaciado");
-        }
+        if (carrito.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "El carrito ya está vacío");
+        } else {
+        carrito.clear();
+        historialPila.tope = null; 
+        colaPedidos.inicio = null;
+        JOptionPane.showMessageDialog(this, "Carrito vaciado correctamente");
+    }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void btngcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btngcActionPerformed
@@ -366,6 +441,32 @@ public class Catalogo_frame extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Último producto eliminado");
         }
     }//GEN-LAST:event_btnepActionPerformed
+
+    private void btnhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnhActionPerformed
+        
+        JOptionPane.showMessageDialog(this, historialPila.getHistorial());
+    }//GEN-LAST:event_btnhActionPerformed
+
+    private void btndhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndhActionPerformed
+        
+        Nodo extraido = historialPila.getPop();
+        
+        if (extraido != null) {
+        
+            
+            if (!carrito.isEmpty()) {
+            carrito.remove(carrito.size() - 1);
+        }
+        colaPedidos.setDesencolar();
+        JOptionPane.showMessageDialog(this, "Se deshizo el último elemento agregado: " + extraido.nomP);
+    }
+
+    }//GEN-LAST:event_btndhActionPerformed
+
+    private void btngpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btngpActionPerformed
+        
+        colaPedidos.setGuardarPedidos();
+    }//GEN-LAST:event_btngpActionPerformed
 
     /**
      * @param args the command line arguments
@@ -410,8 +511,11 @@ public class Catalogo_frame extends javax.swing.JFrame {
     private javax.swing.JButton btnam;
     private javax.swing.JButton btnap;
     private javax.swing.JButton btnaz;
+    private javax.swing.JButton btndh;
     private javax.swing.JButton btnep;
     private javax.swing.JButton btngc;
+    private javax.swing.JButton btngp;
+    private javax.swing.JButton btnh;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -422,5 +526,6 @@ public class Catalogo_frame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
